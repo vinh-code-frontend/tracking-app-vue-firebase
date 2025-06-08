@@ -1,0 +1,35 @@
+<script lang="ts" setup>
+import { signInWithGoogle } from '@/services/authService';
+import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+const router = useRouter();
+const route = useRoute();
+
+const disabled = ref(false);
+
+const handleLogin = async () => {
+  disabled.value = true;
+  const result = await signInWithGoogle();
+  if (result) {
+    const redirectPath = (route.query.redirect as string) || '/';
+    await router.push(redirectPath);
+  }
+  disabled.value = false;
+};
+</script>
+<template>
+  <div class="about">
+    <h1>This is an login page</h1>
+    <button @click="handleLogin" :disabled="disabled">Đăng nhập bằng Google</button>
+  </div>
+</template>
+
+<style>
+@media (min-width: 1024px) {
+  .about {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+</style>

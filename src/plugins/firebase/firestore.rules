@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /users/{userId} {
+      allow read: if isAdmin() || resource.data.active == true;
+      allow write: if request.auth.uid == userId || isAdmin();
+    }
+
+    function isAdmin() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
+    }
+  }
+}
+
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Toàn bộ user collection
+    match /users/{userId} {
+      allow read, write: if request.auth.uid == userId; // mỗi người chỉ được đọc/ghi chính mình
+    }
+
+    // Chỉ admin mới được đọc tất cả users
+    match /users/{userId} {
+      allow read: if isAdmin();
+    }
+
+    // Custom function xác định quyền admin
+    function isAdmin() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
+    }
+  }
+}
