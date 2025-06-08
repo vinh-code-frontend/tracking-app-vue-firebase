@@ -21,12 +21,7 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()]
     }),
-    visualizer({
-      filename: 'bundle-analysis.html',  // tên file báo cáo sẽ được tạo ra
-      open: true,                        // tự động mở file sau khi build xong
-      gzipSize: true,                   // hiển thị kích thước file sau khi gzip
-      brotliSize: true,                 // hiển thị kích thước file sau khi nén brotli
-    })
+    visualizer()
   ],
   resolve: {
     alias: {

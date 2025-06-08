@@ -5,5 +5,7 @@ onBeforeMount(() => {});
 </script>
 
 <template>
-  <router-view />
+  <ElConfigProvider size="large">
+    <RouterView />
+  </ElConfigProvider>
 </template>

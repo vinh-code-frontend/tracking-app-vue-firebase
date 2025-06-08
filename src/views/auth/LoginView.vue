@@ -16,11 +16,16 @@ const handleLogin = async () => {
   }
   disabled.value = false;
 };
+
+const ggImageLink = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png';
 </script>
 <template>
   <div class="about">
-    <h1>This is an login page</h1>
-    <button @click="handleLogin" :disabled="disabled" class="btn">Đăng nhập bằng Google</button>
+    <h1>Login</h1>
+    <ElButton :disabled="disabled" class="btn" round @click="handleLogin">
+      <span> Đăng nhập bằng Google </span>
+      <ElImage :src="ggImageLink" fit="cover" class="w-[18px] ms-2" />
+    </ElButton>
   </div>
 </template>
 

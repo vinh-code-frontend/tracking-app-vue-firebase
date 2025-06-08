@@ -7,7 +7,7 @@ const { loginUser } = useAuthStore();
 
 <template>
   <div class="flex gap-2 justify-between">
-    <el-button v-if="loginUser" @click="logout">Đăng xuất</el-button>
+    <ElButton v-if="loginUser" @click="logout"> Đăng xuất </ElButton>
     <p v-if="loginUser">Chào, {{ loginUser.displayName }}</p>
   </div>
 </template>
