@@ -1,0 +1,6 @@
+{
+  "auth": {
+    "login_google_button": "Sign in with Google",
+    "logout_btn": "Log out"
+  }
+}
