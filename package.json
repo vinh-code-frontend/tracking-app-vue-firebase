@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.8",
-    "date-fns": "^4.1.0",
+    "dayjs": "^1.11.13",
     "element-plus": "^2.10.1",
     "firebase": "^11.8.1",
     "nprogress": "^0.2.0",
