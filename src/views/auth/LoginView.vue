@@ -20,7 +20,7 @@ const handleLogin = async () => {
 <template>
   <div class="about">
     <h1>This is an login page</h1>
-    <button @click="handleLogin" :disabled="disabled">Đăng nhập bằng Google</button>
+    <button @click="handleLogin" :disabled="disabled" class="btn">Đăng nhập bằng Google</button>
   </div>
 </template>
 

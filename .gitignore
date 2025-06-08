@@ -31,3 +31,5 @@ coverage
 .vscode
 package-lock.json
 .env
+
+stats.html
