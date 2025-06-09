@@ -1,15 +1,25 @@
 <script setup lang="ts">
-import { logout } from '@/services/authService';
-import { useAuthStore } from '@/stores/authStore';
-import HomeTopbar from './components/HomeTopbar.vue';
+import HomeTopBar from './components/HomeTopBar.vue';
+import HomeBottomBar from './components/HomeBottomBar.vue';
+import { getElColor } from '@/shared/utils/color';
+import { homeBottomBarHeight, homeScrollbarHeight } from '@/shared/constants';
+import HomeAddExpense from './components/HomeAddExpense.vue';
+import { ref } from 'vue';
 
-const { loginUser } = useAuthStore();
+const drawerVisible = ref(false);
 </script>
 
 <template>
-  <div>
-    <HomeTopbar />
-    <RouterView />
+  <div class="p-4 h-[100dvh] relative" :class="`pb-[${homeBottomBarHeight}] `" :style="{ backgroundColor: getElColor('primary', { ratio: 9 }) }">
+    <HomeTopBar />
+    <div>
+      <ElScrollbar :height="homeScrollbarHeight">
+        <RouterView />
+      </ElScrollbar>
+    </div>
+
+    <HomeBottomBar @open-drawer="drawerVisible = true" />
+    <HomeAddExpense v-model="drawerVisible" />
   </div>
 </template>
 

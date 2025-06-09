@@ -1,7 +1,14 @@
 <script lang="ts" setup>
-import { onBeforeMount } from 'vue';
+import { watch } from 'vue';
+import { useViewport } from '@/shared/hooks/useViewport';
+import { useConfigStore } from './stores/configStore';
 
-onBeforeMount(() => {});
+const { width, height } = useViewport();
+const { setViewport } = useConfigStore();
+
+watch([width, height], ([nW, nH]) => {
+  setViewport({ width: nW, height: nH });
+});
 </script>
 
 <template>

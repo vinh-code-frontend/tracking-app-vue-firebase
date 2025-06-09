@@ -4,5 +4,6 @@ declare module 'vue-router' {
   interface RouteMeta {
     requiresAuth?: boolean;
     requiredRole?: string;
+    title?: string;
   }
 }

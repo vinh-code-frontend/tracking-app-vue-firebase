@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/home/HomeView.vue';
 import { authenticateUser } from './guards';
 import HomeLayout from '@/layouts/HomeLayout.vue';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import LoginView from '@/views/auth/LoginView.vue';
+import { homeRoutes } from './routes';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,7 +11,7 @@ const router = createRouter({
     {
       path: '/',
       component: HomeLayout,
-      children: [{ path: '', name: 'Home', component: HomeView }],
+      children: homeRoutes,
       meta: { requiresAuth: true }
     },
     {

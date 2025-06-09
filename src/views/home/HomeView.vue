@@ -7,7 +7,7 @@ const { loginUser } = useAuthStore();
 <template>
   <main>
     <div>
-      <div></div>
+      <div class="h-[]">home</div>
     </div>
   </main>
 </template>

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { signInWithGoogle } from '@/services/authService';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 const router = useRouter();
 const route = useRoute();
@@ -16,6 +16,10 @@ const handleLogin = async () => {
   }
   disabled.value = false;
 };
+
+onMounted(() => {
+  console.log('mounted');
+});
 
 const ggImageLink = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png';
 </script>
