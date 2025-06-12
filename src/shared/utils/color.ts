@@ -1,4 +1,4 @@
-import type { OneToNine } from '../types/common';
+import type { OneToNine } from '@/shared/types';
 
 export const getElColor = (
   type: 'primary' | 'info',
@@ -21,5 +21,12 @@ export const getElColor = (
   if (useVar) {
     color = `var(${color})`;
   }
+
   return color;
+};
+
+export const getValue = (type: string) => {
+  const getCssVarValue = (prefix: string, type: string) => getComputedStyle(document.documentElement).getPropertyValue(`--el-${prefix}-${type}`);
+
+  return getCssVarValue('border-radius', type);
 };

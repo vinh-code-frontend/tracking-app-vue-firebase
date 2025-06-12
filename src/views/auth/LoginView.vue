@@ -33,12 +33,4 @@ const ggImageLink = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/G
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<style></style>

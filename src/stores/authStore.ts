@@ -1,13 +1,18 @@
-import type { User } from 'firebase/auth';
+import type { IUser } from '@/shared/types';
 import { defineStore } from 'pinia';
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
-    loginUser: null as User | null
+    loginUser: null as IUser | null,
+    needFireStoreData: true as boolean
   }),
   actions: {
-    setLoginUser(user: User | null) {
+    setLoginUser(user: IUser | null) {
       this.loginUser = user;
+      console.log(this.loginUser);
+    },
+    setNeedFireStoreData(payload: boolean) {
+      this.needFireStoreData = payload;
     }
   }
 });

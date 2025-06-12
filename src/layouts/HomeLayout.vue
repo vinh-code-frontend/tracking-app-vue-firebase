@@ -3,10 +3,11 @@ import HomeTopBar from './components/HomeTopBar.vue';
 import HomeBottomBar from './components/HomeBottomBar.vue';
 import { getElColor } from '@/shared/utils/color';
 import { homeBottomBarHeight, homeScrollbarHeight } from '@/shared/constants';
-import HomeAddExpense from './components/HomeAddExpense.vue';
+// import HomeAddExpense from './components/HomeAddExpense.vue';
 import { ref } from 'vue';
+import AddExpenseDrawer from '@/features/ExpenseForm/AddExpenseDrawer.vue';
 
-const drawerVisible = ref(false);
+const drawerVisible = ref(true);
 </script>
 
 <template>
@@ -19,7 +20,8 @@ const drawerVisible = ref(false);
     </div>
 
     <HomeBottomBar @open-drawer="drawerVisible = true" />
-    <HomeAddExpense v-model="drawerVisible" />
+    <!-- <HomeAddExpense v-model="drawerVisible" /> -->
+    <AddExpenseDrawer v-model="drawerVisible" />
   </div>
 </template>
 

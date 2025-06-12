@@ -1,6 +1,15 @@
 @import 'tailwindcss';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
+@theme {
+  --breakpoint-xs: 30rem; /* 480px */
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
